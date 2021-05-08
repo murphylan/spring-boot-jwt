@@ -1,4 +1,4 @@
-package murraco.service;
+package com.ibm.ctube.service;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -10,10 +10,11 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import murraco.exception.CustomException;
-import murraco.model.User;
-import murraco.repository.UserRepository;
-import murraco.security.JwtTokenProvider;
+import com.ibm.ctube.exception.CustomException;
+import com.ibm.ctube.model.User;
+import com.ibm.ctube.security.JwtTokenProvider;
+
+import com.ibm.ctube.repository.UserRepository;
 
 @Service
 public class UserService {

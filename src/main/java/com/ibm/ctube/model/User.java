@@ -1,4 +1,4 @@
-package murraco.model;
+package com.ibm.ctube.model;
 
 import java.util.List;
 

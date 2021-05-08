@@ -1,4 +1,4 @@
-package murraco.security;
+package com.ibm.ctube.security;
 
 import java.util.Base64;
 import java.util.Date;
@@ -18,12 +18,13 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
+import com.ibm.ctube.exception.CustomException;
+import com.ibm.ctube.model.Role;
+
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import murraco.exception.CustomException;
-import murraco.model.Role;
 
 @Component
 public class JwtTokenProvider {

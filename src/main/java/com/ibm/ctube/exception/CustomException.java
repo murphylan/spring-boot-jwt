@@ -1,4 +1,4 @@
-package murraco.exception;
+package com.ibm.ctube.exception;
 
 import org.springframework.http.HttpStatus;
 

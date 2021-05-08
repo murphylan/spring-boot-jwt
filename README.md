@@ -24,7 +24,7 @@ You can find a related post for this repository [here](https://medium.com/@xoor/
 spring-boot-jwt/
  │
  ├── src/main/java/
- │   └── murraco
+ │   └── com.ibm.ctube
  │       ├── configuration
  │       │   └── SwaggerConfig.java
  │       │
@@ -396,4 +396,4 @@ $ curl -X GET http://localhost:8080/users/me -H 'Authorization: Bearer <JWT_TOKE
 - Report issues
 - Open pull request with improvements
 - Spread the word
-- Reach out to me directly at <mauriurraco@gmail.com>
+- Reach out to me directly at <murphylan@hotmail.com>

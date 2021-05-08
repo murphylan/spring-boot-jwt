@@ -1,10 +1,10 @@
-package murraco.repository;
+package com.ibm.ctube.repository;
 
 import javax.transaction.Transactional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import murraco.model.User;
+import com.ibm.ctube.model.User;
 
 public interface UserRepository extends JpaRepository<User, Integer> {
 

@@ -1,4 +1,4 @@
-package murraco.controller;
+package com.ibm.ctube.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -14,16 +14,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ibm.ctube.dto.UserDataDTO;
+import com.ibm.ctube.dto.UserResponseDTO;
+import com.ibm.ctube.model.User;
+import com.ibm.ctube.service.UserService;
+
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import io.swagger.annotations.Authorization;
-import murraco.dto.UserDataDTO;
-import murraco.dto.UserResponseDTO;
-import murraco.model.User;
-import murraco.service.UserService;
 
 @RestController
 @RequestMapping("/users")

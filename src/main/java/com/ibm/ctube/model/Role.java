@@ -1,4 +1,4 @@
-package murraco.model;
+package com.ibm.ctube.model;
 
 import org.springframework.security.core.GrantedAuthority;
 
