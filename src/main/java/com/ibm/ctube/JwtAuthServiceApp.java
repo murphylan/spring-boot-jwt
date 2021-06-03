@@ -1,5 +1,6 @@
 package com.ibm.ctube;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -35,6 +36,8 @@ public class JwtAuthServiceApp implements CommandLineRunner {
     admin.setUsername("admin");
     admin.setPassword("admin");
     admin.setEmail("admin@email.com");
+    admin.setStartdate(java.sql.Date.valueOf(LocalDate.now()));
+    admin.setEnddate(java.sql.Date.valueOf(LocalDate.now().plusDays(11)));
     admin.setRoles(new ArrayList<Role>(Arrays.asList(Role.ROLE_ADMIN)));
 
     userService.signup(admin);
@@ -43,6 +46,8 @@ public class JwtAuthServiceApp implements CommandLineRunner {
     client.setUsername("client");
     client.setPassword("client");
     client.setEmail("client@email.com");
+    client.setStartdate(java.sql.Date.valueOf(LocalDate.now()));
+    client.setEnddate(java.sql.Date.valueOf(LocalDate.now().plusDays(13)));
     client.setRoles(new ArrayList<Role>(Arrays.asList(Role.ROLE_CLIENT)));
 
     userService.signup(client);

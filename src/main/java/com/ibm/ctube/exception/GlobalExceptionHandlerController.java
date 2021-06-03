@@ -21,9 +21,8 @@ public class GlobalExceptionHandlerController {
   public ErrorAttributes errorAttributes() {
     // Hide exception field in the return object
     return new DefaultErrorAttributes() {
-      @Override
       public Map<String, Object> getErrorAttributes(WebRequest webRequest, boolean includeStackTrace) {
-        Map<String, Object> errorAttributes = super.getErrorAttributes(webRequest, includeStackTrace);
+        Map<String, Object> errorAttributes = getErrorAttributes(webRequest, includeStackTrace);
         errorAttributes.remove("exception");
         return errorAttributes;
       }
