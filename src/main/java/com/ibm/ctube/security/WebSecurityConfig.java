@@ -2,7 +2,6 @@ package com.ibm.ctube.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -12,14 +11,14 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-@Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
   @Autowired
-  private JwtTokenProvider jwtTokenProvider;
+  private JwtTokenFilter jwtTokenFilter;
 
   @Override
   protected void configure(HttpSecurity http) throws Exception {
@@ -42,7 +41,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     http.exceptionHandling().accessDeniedPage("/login");
 
     // Apply JWT
-    http.apply(new JwtTokenFilterConfigurer(jwtTokenProvider));
+//    http.apply(new JwtTokenFilterConfigurer(jwtTokenProvider));
+    http.addFilterBefore(
+    		jwtTokenFilter,
+            UsernamePasswordAuthenticationFilter.class
+        );
 
     // Optional, if you want to test the API from a browser
     // http.httpBasic();
@@ -51,9 +54,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
   @Override
   public void configure(WebSecurity web) throws Exception {
     // Allow swagger to be accessed without authentication
-    web.ignoring().antMatchers("/v2/api-docs")//
+    web.ignoring().antMatchers("/v3/api-docs")//
         .antMatchers("/swagger-resources/**")//
-        .antMatchers("/swagger-ui.html")//
+        .antMatchers("/swagger-ui/**")//
         .antMatchers("/configuration/**")//
         .antMatchers("/webjars/**")//
         .antMatchers("/public")
